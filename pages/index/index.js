@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+import cookies from '../../vendor/weapp-cookie/dist/weapp-cookie';
 const app = getApp()
 
 Page({
@@ -26,10 +27,12 @@ Page({
           method: 'post',
           success: function(res){
             wx.showToast({
-              title: res.data.status.toString(),
+              title: res.data.toString(),
               icon: 'success',
               duration: 2000
-            })
+            });
+            console.log(res.data);
+            console.log(cookies.dir("localhost"));
           }
         })
       }, 
